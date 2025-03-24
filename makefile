@@ -63,8 +63,10 @@ run:
 	source env.sh && cd $(runner_build_dir) && python bin/plp_mkflash --flash-boot-binary=$(join $(join $(join $(app_build_dir),$(APPNAME)),/build/$(PULP_APP_NAME)),/$(PULP_APP_NAME))  --stimuli=flash_stim.slm --flash-type=spi --qpi --archi=pulpissimo --raw flash.bin --verbose | tee out.txt
 	@echo "flash..."
 	./jtag.sh -f
-flash:
+gbd_flash:
 	cd ./sdk/pulp-builder && source flash.sh 
 	
+load_sram:
+	cd ./sdk/pulp-builder && source sram_run.sh 
 
 .PHONY: all build app_build build_other boot_build runner_build pulp_build run
