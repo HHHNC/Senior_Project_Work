@@ -37,3 +37,18 @@
   - 进入这些目录：`sdk/pulp-builder/json-tools`、`sdk/pulp-builder/pulp-configs`
   - 分别执行`cmake CMakeLists.txt`，这样就可以生成对应的 makefile，之后再进行`make pulp_build`就行了
 - 如果发现有某个 config 找不到，比如:`Didn't find JSON file from any specified path ......`可以修改`set_env.sh`
+
+
+①no module name elftool：
+
+尝试：sudo pip3 install pyelftools
+②cc1 问题：
+
+尝试下载 git-lfs 后，再次克隆仓库
+③no module问题：
+
+尝试换成 python3，改 makefile 文件最后为python3 bin/plp_mkflash --flash ...... 
+
+或者添加模块路径：
+
+参考：https://blog.csdn.net/qq_41833285/article/details/100077827
